@@ -1,0 +1,22 @@
+HELLO PROGRAM - printing time
+
+0.00040400
+0.10046000
+
+diff 0.100056
+
+MY PROGRAM - printing time
+
+7.66663600
+7.66716000
+
+diff 0.000524 
+
+### Why? ###
+
+A implementação realizada no experimento 5 foi mais rápida. Mais precisamente, ela foi 190,9 vezes mais rápida.
+E isso se dá porque a função printf() foi implementada de forma bloqueante, de modo que o tempo final que vemos
+é o tempo que o sistema levou pra que todos os caracteres fossem realmente transmitidos pela serial, diferentemente da função 
+sendString() que coloca no buffer circular os caracteres e dá espaço para que outras operações sejam executadas.
+Ou seja, a função sendString() é mais rápida, pois apenas deposita os caracteres no buffer cirular e sai, deixando-os disponíveis
+para que o sistema os envie pela serial quando possível.
